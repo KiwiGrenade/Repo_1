@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1522778996 source:e:\games\repo_1\test\main.cpp
+	<iostream>
+	<windows.h>
+	<string>
+

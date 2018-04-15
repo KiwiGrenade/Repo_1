@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1522785690 source:e:\games\repo_1\number spiral diagonals\main.cpp
+	<iostream>
+	<windows.h>
+
