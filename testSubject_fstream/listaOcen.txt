@@ -1,5 +1,4 @@
-Nazwa: 1
-Odmiana: Sativa
-Odmiana: Sativa
-Odmiana: Sativa
-Odmiana: Sativa
+Nazwa: kubek
+Mix
+Ocena (od 0 do 10): 8
+Koszt: 12

@@ -1,47 +1,60 @@
 #include <iostream>
 #include <fstream>
+
 using namespace std;
 
-void ocena()
-{   ofstream lista;
-    lista.open("listaOcen.txt");
-    cout << "Nazwa: ";
+struct wpis
+{
     string nazwa;
-    cin >> nazwa;
-    lista << "Nazwa: " << nazwa << endl;
-    cout << "Odmiana:" << endl;
-    cout << "1.Sativa" << endl;
-    cout << "2.Indica" << endl;
-    cout << "3.Mix" << endl;
-    int odmiana=0;
-    do
-        {
-            cin >> odmiana;
-            switch (odmiana)
-            {
-                case 1:    lista << "Odmiana: Sativa" << endl;break;
-                case 2:    lista << "Odmiana: Indica" << endl;break;
-                case 3:    lista << "Odmiana: Mix" << endl;break;
-                default: cout << "Blad wprowadzania danych!";break;
-            }
-        }
-        while (odmiana==1||2||3);//popraw to <<
-    cout << "Ocena: ";
-    int ocena;
-    cin >> ocena;
-    lista << "Ocena: " << ocena << endl;
-    cout << "Koszt: ";
+    short odmiana;
+    short ocena;
     int koszt;
-    cin >> koszt;
-    lista << "Koszt: " << koszt << endl;
+};
+
+void ocena()
+{
+    ofstream lista;
+    lista.open("listaOcen.txt");
+    if (lista.good()==true)
+    {
+        wpis towar;
+        cout << "Nazwa: ";
+        cin >> towar.nazwa;
+        lista << "Nazwa: " << towar.nazwa << endl;
+        cout << "Odmiana:" << endl;
+        cout << "1.Sativa" << endl;
+        cout << "2.Indica" << endl;
+        cout << "3.Mix" << endl;
+        while (towar.odmiana!=1&&towar.odmiana!=2&&towar.odmiana!=3)
+        cin >> towar.odmiana;
+        switch (towar.odmiana)
+        {
+            case 1:     lista << "Sativa" << endl;break;
+            case 2:     lista << "Indica" << endl;break;
+            case 3:     lista << "Mix" <<endl;break;
+        }
+        cout << "Ocena (od 0 do 10): ";
+        cin >> towar.ocena;
+        lista << "Ocena (od 0 do 10): " << towar.ocena << endl;
+        cout << "Koszt: ";
+        cin >> towar.koszt;
+        lista << "Koszt: " << towar.koszt << endl;
+    }
+
+    else
+    {
+        cout << "Oj, cos poszlo nie tak!" << endl;
+        cout << "Plik nie zostal poprawnie otwarty!";
+    }
+
     lista.close();
 }
 void przeglad()
 {
     ifstream lista;
-    lista.open("listaOcen.txt");
+    lista.open ("listaOcen.txt");
     string wiersz;
-    while (getline(lista,wiersz).good()==true)
+    while (getline (lista,wiersz).good() == true)
     {
         cout << wiersz << endl;
     }
@@ -61,11 +74,11 @@ int main()
     {
         case 1:
             {
-                ocena();
+                ocena();break;
             }
         case 2:
             {
-                przeglad();
+                przeglad();break;
             }
         case 3:
         case 0:;
