@@ -1,4 +1,8 @@
-Nazwa: kubek
-Mix
-Ocena (od 0 do 10): 8
-Koszt: 12
+Nazwa: Sto
+Odmiana: Mix
+Ocena (od 0 do 10): 2
+Koszt: 0
+Nazwa: Lol
+Odmiana: Indica
+Ocena (od 0 do 10): 2
+Koszt: 20

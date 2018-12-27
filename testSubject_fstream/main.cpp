@@ -3,35 +3,36 @@
 
 using namespace std;
 
-struct wpis
+struct wpis //utworzenie struktury typu "wpis"
 {
+
     string nazwa;
     short odmiana;
     short ocena;
     int koszt;
 };
-
-void ocena()
+void ocenianie()
 {
+
     ofstream lista;
-    lista.open("listaOcen.txt");
+    lista.open("listaOcen.txt",std::fstream::app);
     if (lista.good()==true)
     {
-        wpis towar;
+        wpis towar; //utworzenie struktury typu "wpis" o nazwie "towar"
         cout << "Nazwa: ";
-        cin >> towar.nazwa;
-        lista << "Nazwa: " << towar.nazwa << endl;
+        cin >> towar.nazwa; //zapisanie strumienia danych do struktury o nazwie "towar" do komorki "nazwa"
+        lista << endl << "Nazwa: " << towar.nazwa << endl;//wtloczenie danych z "towar.nazwa" do listy
         cout << "Odmiana:" << endl;
         cout << "1.Sativa" << endl;
         cout << "2.Indica" << endl;
         cout << "3.Mix" << endl;
-        while (towar.odmiana!=1&&towar.odmiana!=2&&towar.odmiana!=3)
+        while (towar.odmiana!=1 && towar.odmiana!=2 && towar.odmiana!=3) //dopoki "towar.odmiana" nie jest rowna 1, 2 lub 3;podaj odmiane
         cin >> towar.odmiana;
         switch (towar.odmiana)
         {
-            case 1:     lista << "Sativa" << endl;break;
-            case 2:     lista << "Indica" << endl;break;
-            case 3:     lista << "Mix" <<endl;break;
+            case 1:     lista << "Odmiana: Sativa" << endl; break;
+            case 2:     lista << "Odmiana: Indica" << endl; break;
+            case 3:     lista << "Odmiana: Mix" <<endl; break;
         }
         cout << "Ocena (od 0 do 10): ";
         cin >> towar.ocena;
@@ -49,7 +50,7 @@ void ocena()
 
     lista.close();
 }
-void przeglad()
+void przegladanie()
 {
     ifstream lista;
     lista.open ("listaOcen.txt");
@@ -60,7 +61,6 @@ void przeglad()
     }
     lista.close();
 }
-
 int main()
 {
     cout << "Witaj w oceniaczu towaru!" << " Czym moge sluzyc?" << endl;
@@ -74,14 +74,17 @@ int main()
     {
         case 1:
             {
-                ocena();break;
+                ocenianie(); break;
             }
         case 2:
             {
-                przeglad();break;
+                przegladanie(); break;
             }
         case 3:
-        case 0:;
+            {
+                //usuwanie(); break;
+            }
+        case 0: exit;
     }
     return 0;
 }
