@@ -39,7 +39,7 @@ void ocenianie()
         lista << "Ocena (od 0 do 10): " << towar.ocena << endl;
         cout << "Koszt: ";
         cin >> towar.koszt;
-        lista << "Koszt: " << towar.koszt << '\n';
+        lista << "Koszt: " << towar.koszt << '\n';//popracuj nad tym
     }
 
     else
@@ -63,7 +63,8 @@ void przegladanie()
 }
 void usuwanie()
 {
-
+    ofstream lista;
+    lista.open("listaOcen.txt")
 }
 int main()
 {
