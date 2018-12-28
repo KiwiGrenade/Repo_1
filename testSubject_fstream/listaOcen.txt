@@ -2,7 +2,23 @@ Nazwa: Sto
 Odmiana: Mix
 Ocena (od 0 do 10): 2
 Koszt: 0
+
 Nazwa: Lol
 Odmiana: Indica
 Ocena (od 0 do 10): 2
 Koszt: 20
+
+Nazwa: PurpleHaze
+Odmiana: Sativa
+Ocena (od 0 do 10): 7
+Koszt: 20
+
+Nazwa: test
+Odmiana: Sativa
+Ocena (od 0 do 10): 10
+Koszt: 1012142
+
+Nazwa: stock
+Odmiana: Sativa
+Ocena (od 0 do 10): 10
+Koszt: 10

@@ -21,7 +21,7 @@ void ocenianie()
         wpis towar; //utworzenie struktury typu "wpis" o nazwie "towar"
         cout << "Nazwa: ";
         cin >> towar.nazwa; //zapisanie strumienia danych do struktury o nazwie "towar" do komorki "nazwa"
-        lista << endl << "Nazwa: " << towar.nazwa << endl;//wtloczenie danych z "towar.nazwa" do listy
+        lista << "Nazwa: " << towar.nazwa << endl;//wtloczenie danych z "towar.nazwa" do listy
         cout << "Odmiana:" << endl;
         cout << "1.Sativa" << endl;
         cout << "2.Indica" << endl;
@@ -39,7 +39,7 @@ void ocenianie()
         lista << "Ocena (od 0 do 10): " << towar.ocena << endl;
         cout << "Koszt: ";
         cin >> towar.koszt;
-        lista << "Koszt: " << towar.koszt << endl;
+        lista << "Koszt: " << towar.koszt << '\n';
     }
 
     else
@@ -60,6 +60,10 @@ void przegladanie()
         cout << wiersz << endl;
     }
     lista.close();
+}
+void usuwanie()
+{
+
 }
 int main()
 {
