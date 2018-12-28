@@ -11,22 +11,19 @@ struct wpis //utworzenie struktury typu "wpis"
     short ocena;
     int koszt;
 };
+
 void ocenianie()
 {
-
     ofstream lista;
     lista.open("listaOcen.txt",std::fstream::app);
     if (lista.good()==true)
     {
-        wpis towar; //utworzenie struktury typu "wpis" o nazwie "towar"
+        wpis towar;                                             //utworzenie struktury typu "wpis" o nazwie "towar"
         cout << "Nazwa: ";
-        cin >> towar.nazwa; //zapisanie strumienia danych do struktury o nazwie "towar" do komorki "nazwa"
-        lista << "Nazwa: " << towar.nazwa << endl;//wtloczenie danych z "towar.nazwa" do listy
-        cout << "Odmiana:" << endl;
-        cout << "1.Sativa" << endl;
-        cout << "2.Indica" << endl;
-        cout << "3.Mix" << endl;
-        while (towar.odmiana!=1 && towar.odmiana!=2 && towar.odmiana!=3) //dopoki "towar.odmiana" nie jest rowna 1, 2 lub 3;podaj odmiane
+        cin >> towar.nazwa;                                     //zapisanie strumienia danych do struktury o nazwie "towar" do komorki "nazwa"
+        lista << "Nazwa: " << towar.nazwa << endl;              //wtloczenie danych z "towar.nazwa" do listy
+        cout << "Odmiana:" << endl <<"1.Sativa" << endl << "2.Indica" << endl << "3.Mix" << endl;
+        while (towar.odmiana!=1 && towar.odmiana!=2 && towar.odmiana!=3)            //dopoki "towar.odmiana" nie jest rowna 1, 2 lub 3;podaj odmiane
         cin >> towar.odmiana;
         switch (towar.odmiana)
         {
@@ -39,7 +36,7 @@ void ocenianie()
         lista << "Ocena (od 0 do 10): " << towar.ocena << endl;
         cout << "Koszt: ";
         cin >> towar.koszt;
-        lista << "Koszt: " << towar.koszt << '\n';//popracuj nad tym
+        lista << "Koszt: " << towar.koszt << endl;                  //popracuj nad tym
     }
 
     else
@@ -50,6 +47,7 @@ void ocenianie()
 
     lista.close();
 }
+
 void przegladanie()
 {
     ifstream lista;
@@ -61,35 +59,72 @@ void przegladanie()
     }
     lista.close();
 }
+
 void usuwanie()
 {
-    ofstream lista;
-    lista.open("listaOcen.txt")
+  ofstream lista;
+  lista.open("listaOcen.txt",std::fstream::trunc);
+  lista.close();
 }
+
 int main()
 {
+  int wybor=11;
+  do {
     cout << "Witaj w oceniaczu towaru!" << " Czym moge sluzyc?" << endl;
     cout << "1.Ocen towar" << endl;
     cout << "2.Przegladaj oceny" << endl;
-    cout << "3.Usun ocene" << endl;
+    cout << "9.Usun wszystkie oceny" << endl;
     cout << "0.Wyjdz" << endl;
-    int wybor;
     cin >> wybor;
+    system("cls");
     switch (wybor)
     {
         case 1:
             {
-                ocenianie(); break;
+                ocenianie();
+                system("cls");
+                break;
             }
         case 2:
             {
-                przegladanie(); break;
+                przegladanie();
+                system("pause");
+                system("cls");
+                break;
             }
-        case 3:
+        case 9:
             {
-                //usuwanie(); break;
+                const string haslo = "OCZYWISCIE";
+                string klucz;
+                cout << "Jestes pewien, ze chcesz to zrobic?" << '\n';
+                cout << "Wpisz OCZYWISCIE (uwzgledniajac wielkie litery)" << '\n';
+                cout << "aby usunac wszystkie wpisy." << '\n';
+                cin >> klucz;
+                if (klucz==haslo)
+                {
+                  usuwanie();
+                  system("cls");
+                  cout << "Wszystkie wpisy zostaly zniszczone." << '\n';
+                  system("pause");
+                  system("cls");
+                  break;
+                }
+                else system("cls");break;
+
             }
-        case 0: exit;
+        case 0:
+        {
+          system("exit");break;
+        }
+        default:
+            {
+              cout << "Error: ";
+              system("pause");
+              break;
+            }
     }
+  } while(wybor!=0);
+
     return 0;
 }
